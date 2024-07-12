@@ -9,9 +9,6 @@ export const ThreadsListContainer = () => {
       .then(res => res.json())
       .then(json => setThreads(json))
   },[])
-  const listItems = threads.map((obj) =>
-    <li>{obj.title}</li>
-  );
   return <>
       <main>
         <section>
