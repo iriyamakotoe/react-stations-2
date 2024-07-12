@@ -1,0 +1,16 @@
+ul.threadList {
+    max-width: 600px;
+    background: #fff;
+    list-style: none;
+    padding: 0;
+    margin: 3em auto;
+}
+ul.threadList li {
+    border-bottom: #ccc solid 1px;
+    text-align: left;
+    padding: 1em;
+}
+/* ul.threadList li a {
+    display: block;
+    padding: 1em;
+} */
