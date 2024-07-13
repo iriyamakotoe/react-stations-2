@@ -1,17 +1,17 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Header from './Header';
-import ThreadsListContainer from './ThreadsListContainer';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import './App.css';
+import Home from './Home';
+import ThreadCreate from './ThreadCreate';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <Header />
-      <ThreadsListContainer />
+      <BrowserRouter>
+        <Routes>
+          <Route path={`/`} element={<Home />} />
+          <Route path={`/threads/new`} element={<ThreadCreate />} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
