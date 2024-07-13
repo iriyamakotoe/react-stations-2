@@ -1,12 +1,12 @@
 import Header from './Header';
-import ThreadsListContainer from './ThreadsListContainer';
+import ThreadsList from './ThreadsList';
 
 function Home() {
   const header = {text: 'スレッドをたてる', url: '/threads/new'};
   return (
     <>
       <Header header={header} />
-      <ThreadsListContainer />
+      <ThreadsList />
     </>
   )
 }

@@ -51,7 +51,7 @@ main {
   padding: 2em;
 }
 h2 {
-  margin: 0;
+  margin: 0 0 2em;
 }
 input,button {
   border-radius: 8px;
@@ -85,3 +85,20 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+ul.threadList {
+  max-width: 600px;
+  background: #fff;
+  list-style: none;
+  padding: 0;
+  margin: 3em auto;
+}
+ul.threadList li {
+  border-bottom: #ccc solid 1px;
+  text-align: left;
+  padding: 1em;
+}
+/* ul.threadList li a {
+  display: block;
+  padding: 1em;
+} */
