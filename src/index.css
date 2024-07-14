@@ -20,6 +20,7 @@ a {
 }
 a:hover {
   color: #535bf2;
+  /* opacity: 0.6; */
 }
 
 body {
@@ -81,6 +82,9 @@ button:focus-visible {
     color: #eee;
     text-decoration: none;
   }
+  main a:hover {
+    color: #535bf2;
+  }
   input,button {
     background-color: #f9f9f9;
   }
@@ -98,7 +102,8 @@ ul.threadList li {
   text-align: left;
   padding: 1em;
 }
-/* ul.threadList li a {
-  display: block;
-  padding: 1em;
-} */
+
+#post_status {
+  color: #ff0000;
+  min-height: 24px;
+}

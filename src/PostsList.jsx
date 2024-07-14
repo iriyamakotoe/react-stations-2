@@ -3,8 +3,8 @@ import { useParams } from "react-router-dom";
 import Header from './Header';
 
 export const PostsList = () => {
-    const header = {text: 'トップに戻る', url: '/'};
-    const urlParameters = useParams();
+  const header = {text: 'トップに戻る', url: '/'};
+  const urlParameters = useParams();
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     fetch('https://railway.bulletinboard.techtrain.dev/threads/'+ urlParameters.id +'/posts?offset=0')
