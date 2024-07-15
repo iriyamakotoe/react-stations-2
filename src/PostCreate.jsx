@@ -1,5 +1,3 @@
-import React, {useState, useCallback, useEffect} from 'react'
-
 export const PostCreate = (props) => {
   // 親コンポーネントから受け取った関数を使って、inputの値を渡す
   const handleClick = (event) => {
