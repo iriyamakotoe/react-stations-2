@@ -1,22 +1,21 @@
-import React, {useState, useEffect} from 'react'
+import React, {memo, useState, useEffect, useCallback} from 'react'
 import { useParams } from "react-router-dom";
 import Header from './Header';
 import PostCreate from './PostCreate';
 
-export const PostsList = () => {
+export const PostsList = memo(() => {
+  console.log('PostsList');
   const header = {text: 'トップに戻る', url: '/'};
   const urlParameters = useParams();
   const [posts, setPosts] = useState([]);
-  
   useEffect(() => {
-    fetchPosts();
+    fetchPosts()
   },[])
-  const fetchPosts = () => {
+  const fetchPosts = useCallback(() => {
     fetch('https://railway.bulletinboard.techtrain.dev/threads/'+ urlParameters.id +'/posts?offset=0')
       .then(res => res.json())
       .then(json => setPosts(json.posts))
-      console.log('fetch');
-  }
+  },[])
   const handleClick = (title) => {
     const requestOptions = {
       method: 'POST',
@@ -48,6 +47,6 @@ export const PostsList = () => {
       </section>
     </main>
   </>
-}
+})
 
 export default PostsList
