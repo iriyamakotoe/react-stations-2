@@ -6,10 +6,17 @@ import PostCreate from './PostCreate';
 export const PostsList = () => {
   const header = {text: 'トップに戻る', url: '/'};
   const urlParameters = useParams();
-
   const [posts, setPosts] = useState([]);
-  const [newPost, setNewPost] = useState('');
-
+  
+  useEffect(() => {
+    fetchPosts();
+  },[])
+  const fetchPosts = () => {
+    fetch('https://railway.bulletinboard.techtrain.dev/threads/'+ urlParameters.id +'/posts?offset=0')
+      .then(res => res.json())
+      .then(json => setPosts(json.posts))
+      console.log('fetch');
+  }
   const handleClick = (title) => {
     const requestOptions = {
       method: 'POST',
@@ -17,17 +24,12 @@ export const PostsList = () => {
       body: JSON.stringify({post: title})
     };
     fetch('https://railway.bulletinboard.techtrain.dev/threads/'+ urlParameters.id +'/posts',requestOptions)
-    .then(res => res.json())
-    .then(json => setNewPost(title))
+    .then( res => {
+      if(res.ok)
+        fetchPosts()
+    })
+    .catch(err => console.log(err.message))
   }
-
-  useEffect(() => {
-    fetch('https://railway.bulletinboard.techtrain.dev/threads/'+ urlParameters.id +'/posts?offset=0')
-      .then(res => res.json())
-      .then(json => setPosts(json.posts))
-      console.log('fetch');
-  },[newPost])
-
   const listItems = posts.map((obj) =>
     <li key={obj.id}>{obj.post=='' ? '（タイトルなし）'
       : obj.post}</li>
